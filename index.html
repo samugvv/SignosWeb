@@ -314,7 +314,7 @@ function showVideos() {
             let selectedNumbers = [];
             document.querySelectorAll('.square').forEach(square => {
                 let backgroundImage = square.style.backgroundImage;
-                let match = backgroundImage.match(/\/(\d{3})\.jpg/);
+                let match = backgroundImage.match(/\/(\d{3})\.webp/);
                 if (match) {
                     selectedNumbers.push(match[1]);
                 }else{

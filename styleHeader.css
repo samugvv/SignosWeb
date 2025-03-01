@@ -6,8 +6,10 @@
 
 body {
     font-family: Arial, sans-serif;
+    padding-top: 80px; /* Evita que el contenido quede oculto detrás del header */
 }
 
+/* Header fijo */
 .header {
     display: flex;
     justify-content: space-between;
@@ -15,14 +17,26 @@ body {
     background-color: #1E3A5F;
     padding: 15px 20px;
     height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
+/* Ocultar header al hacer scroll hacia abajo */
+.header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Estilos de navegación */
 .navigation ul {
     list-style: none;
     display: flex;
 }
 
-/* Estilo general de los elementos del menú */
 .navigation ul li {
     position: relative;
 }
@@ -36,7 +50,7 @@ body {
     transition: color 0.3s ease-in-out;
 }
 
-/* Efecto deslizante en los enlaces del menú */
+/* Efecto en los enlaces */
 .navigation ul li a::after {
     content: "";
     position: absolute;
@@ -57,7 +71,7 @@ body {
     width: 100%;
 }
 
-/* Estilos de los submenús */
+/* Submenús */
 .navigation ul ul {
     display: none;
     position: absolute;
@@ -73,7 +87,7 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* Mostrar el submenú con efecto fade-in */
+/* Mostrar el submenú */
 .navigation ul li:hover > ul {
     display: block;
     opacity: 1;
@@ -81,13 +95,7 @@ body {
     transform: translateY(0);
 }
 
-/* Estilos de los elementos del submenú */
-.navigation ul ul li {
-    position: relative;
-    width: 100%;
-}
-
-/* Efecto resaltado en los elementos del submenú */
+/* Submenú items */
 .navigation ul ul li a {
     display: block;
     padding: 10px;
@@ -118,7 +126,7 @@ body {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 80px;
         left: 0;
         background: #1E3A5F;
         width: 100%;
@@ -150,3 +158,4 @@ body {
         display: block;
     }
 }
+

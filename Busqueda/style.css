@@ -1,14 +1,15 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    margin: 0; /* Asegura que no haya márgenes indeseados */
 }
-
 
 .container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    padding: 10px; /* Añadimos padding para evitar que los videos toquen los bordes */
 }
 
 .square-container {
@@ -81,8 +82,8 @@ html, body {
 
 .videoContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Hace que los videos se ajusten bien a diferentes tamaños */
+    gap: 20px;
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
@@ -102,9 +103,10 @@ video {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    max-width: 600px;
+    max-width: 100%; /* Esto asegura que los videos se ajusten al contenedor */
+    display: block; /* Elimina el espacio en blanco debajo del video */
+    object-fit: contain; /* Asegura que el video no se recorte */
 }
-
 
 .container {
     margin-top: 20px;
@@ -112,4 +114,33 @@ video {
     background-color: #f7f7f7;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .videoContainer {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, los videos estarán en una sola columna */
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .video {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    body, html {
+        overflow-x: hidden;
+    }
+}
+
+/* Estilos adicionales para pantallas grandes (por encima de 1024px) */
+@media (min-width: 1024px) {
+    .videoContainer {
+        grid-template-columns: repeat(2, 1fr); /* Muestra tres videos por fila en pantallas grandes */
+    }
+
+    .video {
+        max-width: 100%;
+        height: 400px; /* Aumentamos la altura del video para pantallas grandes */
+    }
 }

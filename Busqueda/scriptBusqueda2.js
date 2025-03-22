@@ -4,7 +4,7 @@ function openExpPopup() {
 
     Object.keys(videoMapping).forEach(key => {
         const rowDiv = document.createElement("div");
-        rowDiv.style.display = "flex";
+        rowDiv.classList.add("row"); // Agregar clase para la fila
 
         const images = key.split(",").map(imgName => imgName !== "--" ? `img/${imgName}.webp` : null);
         
@@ -15,6 +15,7 @@ function openExpPopup() {
                 rowDiv.appendChild(imgElement);
             }
         });
+
         expressionOptions.appendChild(rowDiv);
     });
     document.getElementById("expressionPopup").style.display = "block";

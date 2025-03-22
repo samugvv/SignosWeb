@@ -28,7 +28,7 @@ html, body {
     padding: 10px; /* Añadimos padding para evitar que los videos toquen los bordes */
 }
 
-.square-container {
+.square-container, .square-containerExp {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +60,7 @@ html, body {
     transform: scale(0.98);
 }
 
-.square-container p {
+.square-container p, .square-containerExp p {
     margin: 10px 0 0;
     text-align: center;
     font-size: 14px;
@@ -94,6 +94,22 @@ html, body {
 
 .popup img:hover {
     transform: scale(1.1);
+}
+
+.popup .row {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup .row:hover {
+    background-color: #f0f0f0; /* Color de fondo al hacer hover */
+}
+
+/* Cuando el ratón pasa sobre la fila, también aumenta el tamaño de las imágenes dentro de la fila */
+.popup .row:hover img {
+    transform: scale(1.05); /* Efecto de aumentar el tamaño de las imágenes */
 }
 
 .videoContainer {

@@ -28,12 +28,26 @@ html, body {
     padding: 10px; /* Añadimos padding para evitar que los videos toquen los bordes */
 }
 
-.square-container, .square-containerExp {
+.square-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
 }
+
+
+.square-containerExp {
+    display: flex;
+    flex-direction: row; /* Asegura que las imágenes se muestren en fila */
+    align-items: center;
+    margin: 10px;
+    justify-content: space-evenly; /* Espaciado entre las imágenes */
+    gap: 10px; /* Añadir espacio entre las imágenes */
+    flex-wrap: nowrap; /* Asegura que las imágenes no se envuelvan en una nueva fila */
+    white-space: nowrap; /* Evita que el contenedor rompa la fila */
+}
+
+
 
 .square, .squareExpresiones {
     width: 150px;
@@ -66,6 +80,9 @@ html, body {
     font-size: 14px;
     color: #333;
     font-weight: bold;
+    overflow: hidden; /* Asegura que el texto no se desborde */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
 .popup {

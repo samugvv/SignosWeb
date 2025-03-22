@@ -4,6 +4,22 @@ html, body {
     margin: 0; /* Asegura que no haya márgenes indeseados */
 }
 
+.title{
+  font-size: 20px;         /* Tamaño de fuente grande */
+  font-weight: bold;      /* Negrita */
+  text-transform: uppercase; /* Todo en mayúsculas */
+  margin: 0;
+  text-align: center;
+}
+
+.containerOutside{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -19,7 +35,7 @@ html, body {
     margin: 10px;
 }
 
-.square {
+.square, .squareExpresiones {
     width: 150px;
     height: 150px;
     border: 3px solid #2C7DA0;
@@ -35,12 +51,12 @@ html, body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.square:hover {
+.square:hover, .squareExpresiones:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.square:active {
+.square:active, .squareExpresiones:active {
     transform: scale(0.98);
 }
 
@@ -108,13 +124,6 @@ video {
     object-fit: contain; /* Asegura que el video no se recorte */
 }
 
-.container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 @media (max-width: 768px) {
     .videoContainer {

@@ -50,35 +50,55 @@
     </header>
 
     <section>
-        <div class="container">
-            <div class="square-container">
-                <div class="square">Haz clic para seleccionar una imagen</div>
-                <p>Configuración mano dominante</p>
-            </div>
-            <div class="square-container">
-                <div class="square">Haz clic para seleccionar una imagen</div>
-                <p>Configuración final mano no dominante</p>
-            </div>
-            <div class="square-container">
-                <div class="square">Haz clic para seleccionar una imagen</div>
-                <p>Configuración inicial mano no dominante</p>
-            </div>
-            <div class="square-container">
-                <div class="square">Haz clic para seleccionar una imagen</div>
-                <p>Configuración final mano no dominante</p>
+        <div class="containerOutside">
+            <p class="title">BÚSQUEDA POR CONFIGURACIONES</p>
+            <div class="container">
+                <div class="square-container">
+                    <div class="square">Haz clic para seleccionar una imagen</div>
+                    <p>Configuración mano dominante</p>
+                </div>
+                <div class="square-container">
+                    <div class="square">Haz clic para seleccionar una imagen</div>
+                    <p>Configuración final mano dominante</p>
+                </div>
+                <div class="square-container">
+                    <div class="square">Haz clic para seleccionar una imagen</div>
+                    <p>Configuración inicial mano no dominante</p>
+                </div>
+                <div class="square-container">
+                    <div class="square">Haz clic para seleccionar una imagen</div>
+                    <p>Configuración final mano no dominante</p>
+                </div>
+            </div> 
+        </div>
+
+        <div class="videoContainer"></div>
+
+        <div class="containerOutside">
+            <p class="title">BÚSQUEDA POR EXPRESIONES IDIOMÁTICAS</p>
+            <div class="container">
+                <div class="square-container" onclick="openExpPopup()">
+                    <div class="squareExpresiones">Haz clic para seleccionar una Expresión Idiomática</div>
+                </div>
             </div>
         </div>
     
-        <div class="videoContainer"></div>
-        
         <div id="imagePopup" class="popup">
             <p>Selecciona una imagen:</p>
             <div id="imageOptions"></div>
             <button onclick="closePopup()">Cerrar</button>
             <button onclick="deleteContent()">Borrar</button>
         </div>
+
+        <div id="expressionPopup" class="popup"> 
+            <p>Selecciona una Configuración:</p>
+            <div id="expressionOptions"></div>
+            <button onclick="closeExpPopup()">Cerrar</button>
+        </div>
+   
     </section>
 </body>
 <script src="../myScript.js"></script>
 <script src="./scriptBusqueda.js"></script>
+<script src="./scriptBusqueda2.js"></script>
 </html>

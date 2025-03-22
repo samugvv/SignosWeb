@@ -138,8 +138,6 @@ function showVideos() {
             videoElement.controls = true;
             videoContainer.appendChild(videoElement);
         });
-    } else {
-        videoContainer.innerHTML = "<p>No hay videos disponibles para dicha configuración</p>";
     }
 }
 

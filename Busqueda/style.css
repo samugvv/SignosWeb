@@ -118,7 +118,7 @@ html, body {
     overflow-y: auto;
 }
 
-.popup img {
+.popup img, .popup .empty-square {
     width: 100px;
     height: 100px;
     margin: 5px;

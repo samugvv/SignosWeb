@@ -125,9 +125,11 @@ const videoMapping = {
 
 
 
-function showVideos() {
-    let selectedKey = getSelectedImageNumbers();
-    let videoContainer = document.querySelector(".videoContainer");
+function showVideos(vidContainer, selectedKey) {
+    if(selectedKey == ""){
+        selectedKey = getSelectedImageNumbers();
+    } 
+    let videoContainer = document.querySelector(vidContainer);
     videoContainer.innerHTML = "";
     console.log("Selected Key: ", selectedKey); // Verifica la clave seleccionada
     console.log("pepe:", videoMapping[selectedKey]);
@@ -153,7 +155,9 @@ function showVideos() {
             });
         });
 
-        showVideos();
+        getSelectedImageNumbers();
+
+        
 
         function openPopup() {
             const imageOptions = document.getElementById('imageOptions');
@@ -177,7 +181,7 @@ function showVideos() {
         getSelectedImageNumbers();
 
             document.getElementById('imagePopup').style.display = 'none';
-            showVideos();
+            showVideos(".videoContainer", "");
         }
         function deleteContent() {
             selectedSquare.style.backgroundImage = null;

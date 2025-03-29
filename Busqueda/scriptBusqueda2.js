@@ -7,6 +7,7 @@ function openExpPopup() {
         rowDiv.classList.add("row");
 
         const images = key.split(",").map(imgName => imgName !== "--" ? `img/${imgName}.webp` : null);
+        
 
         images.forEach(imgSrc => {
             if (imgSrc) {
@@ -18,7 +19,7 @@ function openExpPopup() {
 
         rowDiv.addEventListener("click", function() {
             updateSquareWithImages(images); // Reemplaza el cuadrado con las imágenes seleccionadas
-            closeExpPopup(); // Cierra el popup después de seleccionar una fila
+            closeExpPopup(key); // Cierra el popup después de seleccionar una fila
         });
 
         expressionOptions.appendChild(rowDiv);
@@ -48,6 +49,7 @@ function updateSquareWithImages(images) {
         }
     });
 }
-function closeExpPopup() {
+function closeExpPopup(key) {
     document.getElementById("expressionPopup").style.display = "none";
+    showVideos(".videoContainerExp", key);
 }

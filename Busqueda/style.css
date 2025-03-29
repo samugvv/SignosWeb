@@ -147,7 +147,7 @@ html, body {
     transform: scale(1.05); /* Efecto de aumentar el tamaño de las imágenes */
 }
 
-.videoContainer {
+.videoContainer, .videoContainerExp {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Hace que los videos se ajusten bien a diferentes tamaños */
     gap: 20px;

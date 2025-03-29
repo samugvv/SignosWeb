@@ -63,7 +63,24 @@ html, body {
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Evita que el texto se desborde */
+    padding: 10px; /* Añadir un pequeño padding para que el texto no esté pegado a los bordes */
 }
+
+.squareExpresiones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 90%; /* Evita que el texto toque los bordes */
+    max-height: 90%;
+}
+
+
 
 .square:hover, .squareExpresiones:hover {
     transform: scale(1.05);
@@ -81,8 +98,9 @@ html, body {
     color: #333;
     font-weight: bold;
     overflow: hidden; /* Asegura que el texto no se desborde */
-    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    word-wrap: break-word; /* Permite que el texto se ajuste a varias líneas si es necesario */
+    word-break: break-all; /* Si el texto es muy largo, se romperá en el borde */
+    white-space: normal; /* Permite que el texto se ajuste en varias líneas */
 }
 
 .popup {

@@ -44,35 +44,60 @@ document.getElementById("expressionPopup").style.display = "block";
 // Función para actualizar el cuadrado con las imágenes de la fila seleccionada
 function updateSquareWithImages(images) {
     const squareContainerExp = document.querySelector(".square-containerExp");
-    squareContainerExp.innerHTML = ""; // Limpia el contenido actual del contenedor
+    squareContainerExp.innerHTML = ""; // Limpia el contenido actual
+
+    // Contenedor principal para las imágenes y el botón de borrar
+    const imagesWrapper = document.createElement("div");
+    imagesWrapper.classList.add("images-wrapper");
 
     images.forEach(imgSrc => {
-        if (imgSrc === "--") {
-            // Cuadrado vacío cuando no hay imagen
-            const emptyDiv = document.createElement("div");
-            emptyDiv.classList.add("empty-square");
-            emptyDiv.style.width = "150px";
-            emptyDiv.style.height = "150px";
-            emptyDiv.style.backgroundColor = "#f0f0f0";
-            emptyDiv.style.border = "2px solid #ccc";
-            emptyDiv.style.borderRadius = "8px";
-            emptyDiv.style.margin = "5px";
+        const itemContainer = document.createElement("div");
+        itemContainer.classList.add("image-item");
 
-            squareContainerExp.appendChild(emptyDiv);
+        if (imgSrc === "--") {
+            itemContainer.classList.add("empty-square");
         } else {
-            // Imagen normal
             const imgElement = document.createElement("img");
             imgElement.src = imgSrc;
-            imgElement.style.width = "150px";
-            imgElement.style.height = "150px";
-            imgElement.style.borderRadius = "8px";
-            imgElement.style.objectFit = "cover";
-            imgElement.style.margin = "5px";
-
-            squareContainerExp.appendChild(imgElement);
+            imgElement.classList.add("image-item-img");
+            itemContainer.appendChild(imgElement);
         }
+
+        imagesWrapper.appendChild(itemContainer);
     });
+
+    // Botón de eliminación en grupo
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.innerText = "X";
+
+    // Detener propagación y resetear
+    deleteButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+        resetExpressionSelector();
+    });
+
+    imagesWrapper.appendChild(deleteButton);
+    squareContainerExp.appendChild(imagesWrapper);
 }
+
+
+
+
+function resetExpressionSelector() {
+    const squareContainerExp = document.querySelector(".square-containerExp");
+    squareContainerExp.innerHTML = ""; // Limpiamos el contenido
+
+    const defaultDiv = document.createElement("div");
+    defaultDiv.classList.add("squareExpresiones");
+    defaultDiv.innerText = "Haz clic para seleccionar una Expresión Idiomática";
+
+    // Permitir que se pueda volver a abrir el popup al hacer clic
+    defaultDiv.addEventListener("click", openExpPopup);
+
+    squareContainerExp.appendChild(defaultDiv);
+}
+
 
 function closeExpPopup(key) {
     document.getElementById("expressionPopup").style.display = "none";

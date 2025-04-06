@@ -176,6 +176,67 @@ video {
 }
 
 
+
+/* Contenedor principal de imágenes */
+.images-wrapper {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #2C7DA0;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+}
+
+/* Cada imagen dentro del bloque */
+.image-item {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen */
+.image-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Cuadrado vacío */
+.empty-square {
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+}
+
+/* Botón de eliminar */
+.delete-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #1E3A5F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Mostrar botón al pasar el ratón */
+.images-wrapper:hover .delete-button {
+    opacity: 1;
+}
+
+
+
 @media (max-width: 768px) {
     .videoContainer {
         grid-template-columns: 1fr; /* En pantallas pequeñas, los videos estarán en una sola columna */

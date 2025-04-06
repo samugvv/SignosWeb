@@ -37,8 +37,21 @@ function openExpPopup() {
     expressionOptions.appendChild(rowDiv);
 });
 
-document.getElementById("expressionPopup").style.display = "block";
+const expressionPopup = document.getElementById("expressionPopup");
+    expressionPopup.style.display = "block";
 
+    // Añadir un evento de clic al documento para cerrar el popup al hacer clic fuera
+    document.addEventListener('click', closeExpPopupIfOutsideExp, true);
+
+
+
+}
+
+function closeExpPopupIfOutsideExp(event) {
+    const popup = document.getElementById('expressionPopup');
+    if (!popup.contains(event.target)) {
+        closeExpPopup();
+    }
 }
 
 // Función para actualizar el cuadrado con las imágenes de la fila seleccionada

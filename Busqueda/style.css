@@ -116,6 +116,7 @@ html, body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     max-height: 80vh;
     overflow-y: auto;
+    margin-top: 20px;
 }
 
 .popup img, .popup .empty-square {

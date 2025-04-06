@@ -175,7 +175,21 @@ function showVideos(vidContainer, selectedKey) {
                 imageOptions.appendChild(imgElement);
             });
             document.getElementById('imagePopup').style.display = 'block';
+
+            document.addEventListener('click', closePopupIfOutside, true);
         }
+
+        function closePopupIfOutside(event) {
+            const popup = document.getElementById('imagePopup');
+            if (!popup.contains(event.target)) {
+                closePopup();
+            }
+        }
+
+
+
+
+        
 
         function closePopup() {
         getSelectedImageNumbers();

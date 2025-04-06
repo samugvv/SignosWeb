@@ -96,6 +96,12 @@ function resetExpressionSelector() {
     defaultDiv.addEventListener("click", openExpPopup);
 
     squareContainerExp.appendChild(defaultDiv);
+
+    const videoContainer = document.querySelector(".videoContainerExp");
+    if (videoContainer) {
+        videoContainer.innerHTML = "";
+    }
+
 }
 
 

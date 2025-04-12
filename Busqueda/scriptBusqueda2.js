@@ -2,50 +2,45 @@ function openExpPopup() {
     const expressionOptions = document.getElementById("expressionOptions");
     expressionOptions.innerHTML = "";
 
-    Object.keys(videoMapping).forEach(key => {
-    const rowDiv = document.createElement("div");
-    rowDiv.classList.add("row");
+    const totalVideos = 238;
 
-    const images = key.split(",").map(imgName => imgName !== "--" ? `img/${imgName}.webp` : "--");
+    // Creamos un contenedor tipo grid
+    const gridContainer = document.createElement("div");
+    gridContainer.classList.add("video-grid");
 
-    images.forEach(imgSrc => {
-        if (imgSrc === "--") {
-            // Cuadrado en blanco
-            const emptyDiv = document.createElement("div");
-            emptyDiv.classList.add("empty-square");
-            emptyDiv.classList.add("empty-square");
-            emptyDiv.style.width = "100px";  // Ajusta el tamaño según tus necesidades
-            emptyDiv.style.height = "100px";
-            emptyDiv.style.backgroundColor = "#f0f0f0"; // Color para distinguirlo (puedes cambiarlo)
-            emptyDiv.style.border = "1px solid #ccc";
-            rowDiv.appendChild(emptyDiv);
-        } else {
-            // Imagen normal
-            const imgElement = document.createElement("img");
-            imgElement.src = imgSrc;
-            imgElement.style.width = "100px"; // Asegura que coincida con el tamaño del cuadro en blanco
-            imgElement.style.height = "100px";
-            rowDiv.appendChild(imgElement);
-        }
-    });
+    for (let i = 1; i <= totalVideos; i++) {
+        const number = String(i).padStart(3, "0"); // "001", "002", ..., "238"
+        const fileName = `EI${number}.mp4`;
 
-    rowDiv.addEventListener("click", function() {
-        updateSquareWithImages(images);
-        closeExpPopup(key);
-    });
+        const videoWrapper = document.createElement("div");
+        videoWrapper.classList.add("video-wrapper");
 
-    expressionOptions.appendChild(rowDiv);
-});
+        const videoElement = document.createElement("video");
+        videoElement.src = `./vid/${fileName}`;
+        videoElement.muted = true;
+        videoElement.loop = true;
+        videoElement.classList.add("video-thumb");
 
-const expressionPopup = document.getElementById("expressionPopup");
-    expressionPopup.style.display = "block";
+        videoElement.addEventListener("mouseenter", () => videoElement.play());
+        videoElement.addEventListener("mouseleave", () => {
+            videoElement.pause();
+            videoElement.currentTime = 0;
+        });
 
-    // Añadir un evento de clic al documento para cerrar el popup al hacer clic fuera
-    document.addEventListener('click', closeExpPopupIfOutsideExp, true);
+        videoWrapper.addEventListener("click", () => {
+            updateSquareWithVideo(fileName);
+            closeExpPopup(fileName);
+        });
 
+        videoWrapper.appendChild(videoElement);
+        gridContainer.appendChild(videoWrapper);
+    }
 
-
+    expressionOptions.appendChild(gridContainer);
+    document.getElementById("expressionPopup").style.display = "block";
+    document.addEventListener("click", closeExpPopupIfOutside, true);
 }
+
 
 function closeExpPopupIfOutsideExp(event) {
     const popup = document.getElementById('expressionPopup');
